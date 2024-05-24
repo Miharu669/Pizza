@@ -1,8 +1,23 @@
-
-const ingredients = ["flour","water","pinchSalt","beer","yeast","aove","redPepper","mince","springOnion","barbequeSauce","tomatoSauce"]
+const proofYeast = [
+    "water" = '250ml of warm water',
+    "yeast" = 'adding 1/4 teaspoon active dry yeast to the water',
+]
+const ingredientsDough = [
+    "yeast proof" = 'yeasted water',
+    "flour" = '500gr all-purpose flour',
+    "beer" = 'adding 100ml of beer',
+    "aove" =  '2 tablespoons of extra virgin olive oil',
+    "pinchSalt" = '2 teaspoons of salt',
+]
+const ingredientsPizza = [
+    "redPepper",
+    "mince",
+    "springOnion",
+    "barbequeSauce",
+    "tomatoSauce"]
 
 const preHeat = async () => {
-    console.log ('PreHeated');
+    console.log ('Pre-Heating the Oven at 220º...');
     const response = await OvenIsRdy()
     console.log(response)
 }
@@ -10,7 +25,7 @@ const preHeat = async () => {
 
 const OvenIsRdy = async() => { return new Promise (resolve => setTimeout (() => {
      resolve ('Beep! Oven is ready')}
-     , 2500 ));
+     , 6000 ));
 }
 
 function app() {
@@ -26,7 +41,7 @@ function makePizza() {
 }
 
 function makeDough() {
-    console.log("Preparar la masa");
+    console.log('Making the dough');
 }
     
     /* let redPepper = 1
