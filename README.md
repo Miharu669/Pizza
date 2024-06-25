@@ -13,4 +13,4 @@ This is a simple command-line application written in Node.js that allows you to 
 
 ## Requirements
 
-- Node.js installed on your machine ([Download Node.js](https://nodejs.org/))
+- Node.js installed on your machine 
