@@ -1,57 +1,17 @@
-const proofYeast = [
-    "water" = '250ml of warm water',
-    "yeast" = 'adding 1/4 teaspoon active dry yeast to the water',
-]
-const ingredientsDough = [
-    "yeast proof" = 'yeasted water',
-    "flour" = '500gr all-purpose flour',
-    "beer" = 'adding 100ml of beer',
-    "aove" =  '2 tablespoons of extra virgin olive oil',
-    "pinchSalt" = '2 teaspoons of salt',
-]
-const ingredientsPizza = [
-    "redPepper",
-    "mince",
-    "springOnion",
-    "barbequeSauce",
-    "tomatoSauce"]
+import prompt from "prompt-sync";
+import { availablePizzas, preparePizza, preHeat } from "./pizzas.js";
 
-const preHeat = async () => {
-    console.log ('Pre-Heating the Oven at 220º...');
-    const response = await OvenIsRdy()
-    console.log(response)
+const promptSync = prompt();
+
+const selectedPizza = promptSync(
+  "And your pizza is ... (pepperoni, margherita, hawaiian, carbonara, bbq...): "
+).toLowerCase();
+
+if (availablePizzas.includes(selectedPizza)) {
+  console.log(`Pizza ${selectedPizza} in preparation`);
+  preHeat().then(() => {
+    preparePizza(selectedPizza);
+  });
+} else {
+  console.log(`Sorry, we don't have ${selectedPizza} pizza.`);
 }
-
-
-const OvenIsRdy = async() => { return new Promise (resolve => setTimeout (() => {
-     resolve ('Beep! Oven is ready')}
-     , 6000 ));
-}
-
-function app() {
-    preHeat()
-    makePizza()
-}
-
-app()
-
-
-function makePizza() {
-    makeDough()
-}
-
-function makeDough() {
-    console.log('Making the dough');
-}
-    
-    /* let redPepper = 1
-    let mince = 500
-    let springOnion = 1
-    let barbequeSauce = 1
-    let tomatoSauce = 1    
-
-
- 
-function preparePizza ()
-function bakePizza ()
-function deliverPizza () */
